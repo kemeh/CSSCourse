@@ -8,7 +8,10 @@ var mobileNav = document.querySelector('.mobile-nav');
 for(var i = 0; i < selectPlanButton.length; i++){
     selectPlanButton[i].addEventListener('click', function(){
         modal.classList.add('open')
-        backdrop.classList.add('open')
+        backdrop.style.display = 'block';
+        setTimeout(() => {
+            backdrop.classList.add('open');
+        }, 10);
     });
 }
 
@@ -20,15 +23,20 @@ backdrop.addEventListener('click', function(){
     mobileNav.classList.remove('open');
     closeModal();
 });
-toggleButton.addEventListener('click', function(){
-    backdrop.classList.add('open');
+toggleButton.addEventListener('click', function(){ 
     mobileNav.classList.add('open');
+    backdrop.style.display = 'block';
+    setTimeout(() => {
+        backdrop.classList.add('open');
+    }, 10);
 });
 
 function closeModal(){
     if(modal){
         modal.classList.remove('open');
     }
-    
     backdrop.classList.remove('open');
+    setTimeout(() => {
+        backdrop.style.display = 'none';
+    }, 200);   
 }
